@@ -55,6 +55,7 @@ public class Game {
     }
 
     private Symbol getPlayerSymbol(Player player) {
+        ui.showMessage(player.getName() + ", your turn!");
         Symbol symbol = player.showNextSymbol();
         ui.showMessage(player.getName() + " chose " + symbol);
         return symbol;
