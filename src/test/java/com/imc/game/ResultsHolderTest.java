@@ -2,27 +2,18 @@ package com.imc.game;
 
 import com.imc.player.Player;
 import com.imc.player.RobotBehaviour;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ResultsHolderTest {
 
-    private GameStateHolder gameState;
-    private Player player1;
-    private Player player2;
-
-    @BeforeEach
-    public void init() {
-        player1 = new Player(new RobotBehaviour());
-        player2 = new Player(new RobotBehaviour());
-        gameState = new GameStateHolder(player1, player2, 3);
-    }
-
     @Test
-    public void shouldReturnCorrectScoreAfterRounds() {
+    public void testShouldReturnCorrectScoreAfterRounds() {
+        Player player1 = new Player(new RobotBehaviour());
+        Player player2 = new Player(new RobotBehaviour());
+        GameStateHolder gameState = new GameStateHolder(player1, player2, 3);
+
         gameState.setRoundWinner(player1);
         gameState.setRoundWinner(player2);
         gameState.setRoundWinner(player1);
@@ -32,7 +23,11 @@ public class ResultsHolderTest {
     }
 
     @Test
-    public void resultsShouldBeEmptyAfterResetRounds() {
+    public void testResultsShouldBeEmptyAfterResetRounds() {
+        Player player1 = new Player(new RobotBehaviour());
+        Player player2 = new Player(new RobotBehaviour());
+        GameStateHolder gameState = new GameStateHolder(player1, player2, 3);
+
         gameState.setRoundWinner(player1);
         gameState.setRoundWinner(player2);
         gameState.setRoundWinner(player1);

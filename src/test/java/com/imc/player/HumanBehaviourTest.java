@@ -4,9 +4,7 @@ import com.imc.ui.Console;
 import com.imc.ui.UserInterface;
 import org.junit.jupiter.api.Test;
 
-import static com.imc.game.Symbol.PAPER;
-import static com.imc.game.Symbol.ROCK;
-import static com.imc.game.Symbol.SCISSORS;
+import static com.imc.game.Symbol.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
@@ -14,19 +12,19 @@ import static org.mockito.Mockito.when;
 public class HumanBehaviourTest {
 
     @Test
-    public void shouldCorrectlyDefineNonEmptyUserName() {
+    public void testShouldCorrectlyDefineNonEmptyUserName() {
         UserInterface mockUi = mock(Console.class);
         when(mockUi.readInputData()).thenReturn("", "   ", "PlayerName", "123");
 
-        Player humanPlayer = new Player(new HumanBehaviour(mockUi));
-        assertEquals("PlayerName", humanPlayer.getName());
+        HumanBehaviour humanBehaviour = new HumanBehaviour(mockUi);
+        assertEquals("PlayerName", humanBehaviour.definePlayerName());
     }
 
     @Test
-    public void shouldCorrectlyParseUsersSymbolInput() {
+    public void testShouldCorrectlyParseUsersSymbolInput() {
         UserInterface mockUi = mock(Console.class);
         when(mockUi.readInputData())
-                .thenReturn("PlayerName", "", "123", "P", "paPeR", "111", "rock", "scisors","SCISSORS");
+                .thenReturn("PlayerName", "", "123", "P", "paPeR", "111", "rock", "scisors", "SCISSORS");
 
         Player humanPlayer = new Player(new HumanBehaviour(mockUi));
 

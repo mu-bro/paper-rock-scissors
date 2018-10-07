@@ -2,6 +2,8 @@ package com.imc.player;
 
 import com.imc.ui.UserInterface;
 
+import java.util.Random;
+
 public class PlayerConfigurator {
 
     private PlayerConfigurator() {}
@@ -26,8 +28,10 @@ public class PlayerConfigurator {
 
         switch (playerType) {
             case HUMAN:  return new Player(new HumanBehaviour(ui));
-            case ROBOT: return new Player(new RobotBehaviour());
-            default: return null; // this statement never be reached
+            case ROBOT:
+                return new Player(new RobotBehaviour(new Random()));
+            default:
+                throw new RuntimeException("This behaviour type is not supported - " + playerType.toString());
         }
     }
 

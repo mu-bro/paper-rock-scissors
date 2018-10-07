@@ -54,6 +54,9 @@ public class GameConfigurator {
     }
 
     public Game build() {
+        if (player1 == null) throw new RuntimeException("Player #1 was not defined");
+        if (player2 == null) throw new RuntimeException("Player #2 was not defined");
+        if (totalRounds == null) throw new RuntimeException("Total rounds amount was not defined");
         return new Game(ui, player1, player2, totalRounds);
     }
 

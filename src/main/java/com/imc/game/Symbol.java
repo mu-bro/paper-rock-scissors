@@ -20,8 +20,8 @@ public enum Symbol implements Comparable<Symbol> {
         }
     };
 
-    private static ComparisonResult compareSymbolsHelper(Symbol winSimple, Symbol looseSymbol, Symbol currentSymbol) {
-        if (currentSymbol.equals(winSimple)) return ComparisonResult.WINS;
+    private static ComparisonResult compareSymbolsHelper(Symbol winSymbol, Symbol looseSymbol, Symbol currentSymbol) {
+        if (currentSymbol.equals(winSymbol)) return ComparisonResult.WINS;
         if (currentSymbol.equals(looseSymbol)) return ComparisonResult.LOOSES;
         return ComparisonResult.DRAW;
     }

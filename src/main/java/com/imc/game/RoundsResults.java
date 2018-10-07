@@ -2,10 +2,10 @@ package com.imc.game;
 
 import com.imc.player.Player;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
-
-import static java.util.stream.Collectors.toMap;
 
 public class RoundsResults {
     public static final int UNNOWN_RESULT = -1;
@@ -17,6 +17,13 @@ public class RoundsResults {
         Arrays.asList(players).forEach(p -> winsCount.put(p, new AtomicInteger(0)));
     }
 
+
+    /**
+     * Add player to results
+     *
+     * @param winner player to increment score
+     * @return true if winner successfully added, false - if player not found in results
+     */
     public boolean addRoundWinner(Player winner) {
         if (winsCount.containsKey(winner)) {
             winsCount.get(winner).incrementAndGet();
